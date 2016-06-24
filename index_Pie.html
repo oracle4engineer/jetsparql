@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+        <meta name="apple-mhbbile-web-app-title" content="Oracle JET"/>
+        <meta name="viewport" content="initial-scale=1.0"/>
+        <title>JET SPARQL</title>
+        <link rel="icon" type="image/x-icon" href="css/images/favicon.ico"/>
+        <link rel="stylesheet" href="css/libs/oj/v2.0.1/alta/oj-alta-min.css"/>
+        <script data-main="js/main_Pie" src="js/libs/require/require.js"></script>
+    </head>
+    <body>
+        <div id="mainContent" class="oj-web-applayout-page">
+            <!-- Header content -->
+            <header role="banner" class="oj-web-applayout-header">
+                <div class="oj-web-applayout-max-width oj-flex-bar oj-sm-align-items-center">
+                    <div data-bind="oj-flex-bar-middle">
+                        <span class="oj-web-applayout-header-title" title="Application Name"
+                              data-bind="text: titleLabel"></span>
+                    </div>
+                </div>
+            </header>
+            <!-- Main page content -->
+            <main class="oj-web-applayout-content oj-web-applayout-max-width">
+                <div class="oj-flex">
+                    <!-- テキストエリア及びボタンの設定:  ここから -->
+                    <div class="oj-panel oj-margin oj-flex-item">
+                        <div class="oj-flex">  
+                            <div class="oj-flex-item">
+                                <label for="sparql_textarea" class="oj-label">Query Text</label>
+                                <br/>
+                                <textarea  id="sparql_textarea" 
+                                           style="resize: both;  width: 700px; height: 200px;"
+                                           data-bind="ojComponent: {component: 'ojTextArea', 
+                                        value: Keyword}" ></textarea>
+                                <br/>
+                                <button data-bind="click: Search">Run Query</button>
+                                <br/><br/>
+                            </div>
+                        </div>
+                        <!-- テキストエリア及びボタンの設定:  ここから -->
+
+                        <!-- 円グラフの設定:  ここから -->
+                        <div id='chart-container'>
+                            <div class="oj-flex oj-sm-flex-items-initial oj-flex-items-pad">
+                                <div class="oj-flex-item" style="max-width:200px;">
+                                    <label for="innerRadius">innerRadius</label>
+                                    <input id="innerRadius" aria-controls="pieChart" data-bind="ojComponent: {component: 'ojInputNumber',
+                      max: 1, min: 0, step: .1, value: innerRadius}"/>
+                                </div>
+                                <div class="oj-flex-item" style="max-width:150px;">
+                                    <label for="centerLabel">label</label>
+                                    <input id="centerLabel" type="text" aria-controls="pieChart" data-bind="ojComponent: {component: 'ojInputText', value: centerLabel}"/>
+                                </div>
+                                <div class="oj-flex-item" style="max-width:225px;">
+                                    <label for="labelStyle">label style</label>
+                                    <input id="labelStyle" type="text" aria-controls="pieChart" data-bind="ojComponent: {component: 'ojInputText', value: labelStyle}"/>
+                                </div>
+                            </div>
+                            <div id="pieChart"  data-bind="ojComponent: {
+        component: 'ojChart',
+        type: 'pie',
+        series: chartSeries,
+        groups: pieGroupsValue,
+        styleDefaults: {pieInnerRadius: ko.toJS(innerRadius)},
+        animationOnDataChange: 'auto',
+        pieCenterLabel: {
+          text: ko.toJS(centerLabel),
+          style: ko.toJS(labelStyle)}
+        }"
+                                 style="max-width:500px;width:500px;height:500px;">
+                            </div>
+                        </div> 
+                        <!-- 円グラフの設定:  ここまで -->
+                        
+                    </div>
+            </main>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+        <meta name="apple-mobile-web-app-title" content="Oracle JET"/>                                  
+        <meta name="viewport" content="initial-scale=1.0"/>
+        <title>JET SPARQL</title>
+        <link rel="icon" type="image/x-icon" href="css/images/favicon.ico"/>
+        <link rel="stylesheet" href="css/libs/oj/v2.0.1/alta/oj-alta-min.css"/>
+        <script data-main="js/main" src="js/libs/require/require.js"></script>
+
+    </head>
+    <body>
+        <div id="mainContent" class="oj-web-applayout-page">
+            <!-- Header content -->
+            <header role="banner" class="oj-web-applayout-header">
+                <div class="oj-web-applayout-max-width oj-flex-bar oj-sm-align-items-center">
+                    <div data-bind="oj-flex-bar-middle">
+                        <span class="oj-web-applayout-header-title" title="Application Name"
+                              data-bind="text: titleLabel"></span>
+                    </div>
+                </div>
+            </header>
+            <!-- Main page content -->
+            <main class="oj-web-applayout-content oj-web-applayout-max-width">
+                <div class="oj-flex">
+                    <!-- テキストエリア及びボタンの設定:  ここから -->
+                    <div class="oj-panel oj-margin oj-flex-item">
+                        <div class="oj-flex">  
+                            <div class="oj-flex-item">
+                                <label for="sparql_textarea" class="oj-label">Query Text</label>
+                                <br/>
+                                <textarea  id="sparql_textarea" 
+                                           style="resize: both;  width: 700px; height: 200px;"
+                                           data-bind="ojComponent: {component: 'ojTextArea', 
+                                        value: Keyword}" ></textarea>
+                                <br/>
+                                <button data-bind="click: Search">Run Query</button>
+                                <br/><br/>
+                            </div>
+                        </div>
+                        <!-- テキストエリア及びボタンの設定:  ここまで -->
+                        <!-- テーブルの設定:  ここから -->
+                        <table summary="誕生日が1月1日の人を表示" aria-label="誕生日が1月1日の人を表示"
+                               data-bind="ojComponent: { component:'ojTable',
+                  data: tableDataSource,
+                  columns: [
+                    { headerText: 'Name'}
+                  , { headerText: 'BirthYear'}
+                  ],
+                  rowTemplate: 'empRowTemplate',
+                  rootAttributes: { 'style': 'width: 100%;' },
+                }">
+                        </table>
+                        <script id="empRowTemplate" type="text/html">
+                            <tr>
+                                <td data-bind="text: film_name"></td>
+                                <td data-bind="text: screen_time"></td>
+                            </tr>
+                            </script>
+                            <!-- テーブルの設定: ここまで -->
+                            <!-- テーブルのページングの設定: ここから -->
+                            <div data-bind="ojComponent: {
+                component: 'ojPagingControl',
+                data: tableDataSource,
+                pageSize: 10
+              }"></div>
+                            <!-- テーブルのページングの設定: ここまで -->
+                        </div>
+                </main>
+            </div>
+        </body>
+    </html>
