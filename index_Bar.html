@@ -9,6 +9,8 @@
         <title>JET SPARQL</title>
         <link rel="icon" type="image/x-icon" href="css/images/favicon.ico"/>
         <link rel="stylesheet" href="css/libs/oj/v2.0.1/alta/oj-alta-min.css"/>
+        <link href='http://cdn.jsdelivr.net/yasqe/2.10.0/yasqe.min.css' rel='stylesheet' type='text/css'/>
+        <script src='http://cdn.jsdelivr.net/yasqe/2.10.0/yasqe.bundled.min.js'></script>
         <script data-main="js/main_Bar" src="js/libs/require/require.js"></script>
     </head>
     <body>
@@ -31,10 +33,7 @@
                             <div class="oj-flex-item">
                                 <label for="sparql_textarea" class="oj-label">Query Text</label>
                                 <br/>
-                                <textarea  id="sparql_textarea" 
-                                           style="resize: both;  width: 700px; height: 200px;"
-                                           data-bind="ojComponent: {component: 'ojTextArea', 
-                                        value: Keyword}" ></textarea>
+				<div id="sparql_textarea"></div>
                                 <br/>
                                 <button data-bind="click: Search">Run Query</button>
                                 <br/><br/>
