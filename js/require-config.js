@@ -15,13 +15,17 @@ var require = {
       "factory": "utils/factory",
       "main_view_model": "view_models/main",
       "pie_view_model": "view_models/pie",
-      "bar_view_model": "view_models/bar"
+      "bar_view_model": "view_models/bar",
+      "yasqe": "http://cdn.jsdelivr.net/yasqe/2.10.0/yasqe.bundled.min"
   },
   // AMD (Asynchronous Module Definition; ライブラリのモジュール化や非同期ロードのためのお約束) に
   // 非対応のライブラリをモジュール化するための構成
   shim: {
       "jquery": {
           exports: ["jQuery", "$"]
+      },
+      "yasqe": {
+          exports: "YASQE"
       }
   }
 };

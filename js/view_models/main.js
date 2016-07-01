@@ -1,4 +1,4 @@
-define(["knockout"], function(ko){
+define(["knockout", "yasqe"], function(ko, YASQE){
   var MainViewModel = function MainViewModel(dataCollection, defaultQuery, yasqeId) {
       var self = this;
       var yasqe = YASQE(document.getElementById(yasqeId));
