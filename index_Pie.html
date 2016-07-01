@@ -9,6 +9,8 @@
         <title>JET SPARQL</title>
         <link rel="icon" type="image/x-icon" href="css/images/favicon.ico"/>
         <link rel="stylesheet" href="css/libs/oj/v2.0.1/alta/oj-alta-min.css"/>
+        <link href='http://cdn.jsdelivr.net/yasqe/2.10.0/yasqe.min.css' rel='stylesheet' type='text/css'/>
+        <script src="js/require-config.js"></script>
         <script data-main="js/main_Pie" src="js/libs/require/require.js"></script>
     </head>
     <body>
@@ -27,16 +29,12 @@
                 <div class="oj-flex">
                     <!-- テキストエリア及びボタンの設定:  ここから -->
                     <div class="oj-panel oj-margin oj-flex-item">
-                        <div class="oj-flex">  
+                        <div class="oj-flex">
                             <div class="oj-flex-item">
                                 <label for="sparql_textarea" class="oj-label">Query Text</label>
                                 <br/>
-                                <textarea  id="sparql_textarea" 
-                                           style="resize: both;  width: 700px; height: 200px;"
-                                           data-bind="ojComponent: {component: 'ojTextArea', 
-                                        value: Keyword}" ></textarea>
-                                <br/>
-                                <button data-bind="click: Search">Run Query</button>
+                                <div id="sparql_textarea"></div>                                <br/>
+                                <button data-bind="click: search">Run Query</button>
                                 <br/><br/>
                             </div>
                         </div>
@@ -72,9 +70,9 @@
         }"
                                  style="max-width:500px;width:500px;height:500px;">
                             </div>
-                        </div> 
+                        </div>
                         <!-- 円グラフの設定:  ここまで -->
-                        
+
                     </div>
             </main>
         </div>
