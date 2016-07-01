@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="css/libs/oj/v2.0.1/alta/oj-alta-min.css"/>
         <link href='http://cdn.jsdelivr.net/yasqe/2.10.0/yasqe.min.css' rel='stylesheet' type='text/css'/>
         <script src='http://cdn.jsdelivr.net/yasqe/2.10.0/yasqe.bundled.min.js'></script>
+        <script src="js/require-config.js"></script>
         <script data-main="js/main" src="js/libs/require/require.js"></script>
     </head>
     <body>
@@ -35,7 +36,7 @@
                                 <br/>
                                 <div  id="sparql_textarea"></div>
                                 <br/>
-                                <button data-bind="click: Search">Run Query</button>
+                                <button data-bind="click: search">Run Query</button>
                                 <br/><br/>
                             </div>
                         </div>
@@ -54,8 +55,8 @@
                         </table>
                         <script id="empRowTemplate" type="text/html">
                             <tr>
-                                <td data-bind="text: film_name"></td>
-                                <td data-bind="text: screen_time"></td>
+                                <td data-bind="text: name"></td>
+                                <td data-bind="text: birthYear"></td>
                             </tr>
                             </script>
                             <!-- テーブルの設定: ここまで -->
